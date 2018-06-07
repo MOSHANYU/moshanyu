@@ -334,6 +334,11 @@
     <!-- 打赏 END -->
     <!-- 二维码 START -->
     
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
     <!-- 二维码 END -->
     
       <!-- Gitment START -->
@@ -434,7 +439,8 @@
           }
         }
       })
-      gitment.render(document.getElementById('comments'))
+      gitment.render(document.getElementById('comments'));
+	  
     }
   })();
 </script>
