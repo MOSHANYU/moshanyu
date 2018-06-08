@@ -10,7 +10,7 @@
   
   <title>
     
-      模电考试安排 | 个人博客
+      MVVC机制 | 个人博客
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>模电考试安排</h2>
+  <h2>MVVC机制</h2>
   <p class="post-date">2018-06-07</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -147,19 +147,34 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>如图，7月8号上午9点半到11点半 <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs2yz6048cj30l50puwej.jpg" alt=""></p>
+    <section class="markdown-content"><h2 id="什么是MVVC"><a href="#什么是MVVC" class="headerlink" title="什么是MVVC"></a>什么是MVVC</h2><ul>
+<li>MVVC全称为Multiversion Concurrency Control，也就是<strong>多版本并发控制</strong>。</li>
+<li>MVVC就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。</li>
+<li>Mysql<strong>只有read-committed和 repeatable-read 两种事务隔离级别才能使用MVCC</strong>。</li>
+</ul>
+<h2 id="MVVC有什么用"><a href="#MVVC有什么用" class="headerlink" title="MVVC有什么用"></a>MVVC有什么用</h2><ul>
+<li>Mysql可以通过MVVC来解决幻读问题。</li>
+</ul>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#模电" >
-    <span class="tag-code">模电</span>
+  <a href="/tags#MVVC" >
+    <span class="tag-code">MVVC</span>
   </a>
 
-  <a href="/tags#考试" >
-    <span class="tag-code">考试</span>
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#幻读" >
+    <span class="tag-code">幻读</span>
   </a>
 
       </div>
@@ -170,20 +185,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/06/04/第一章 常用半导体器件/">
+      <a class="nav-left" href="/2018/06/07/什么是幻读/">
         <span class="nav-arrow">← </span>
         
-          第一章 常用半导体器件
+          什么是幻读
         
       </a>
     
-    
-      <a class="nav-right" href="/2018/06/07/Mysql事务/">
-        
-          Mysql事务
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -212,7 +220,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是MVVC"><span class="toc-nav-text">什么是MVVC</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#MVVC有什么用"><span class="toc-nav-text">MVVC有什么用</span></a></li></ol>
     
   </div>
 </aside>
@@ -222,7 +230,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2018/06/07/模电考试安排/';
+    var url = 'http://yoursite.com/2018/06/07/MVVC机制/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -278,7 +286,7 @@
     var gitmentConfig = "moshanyu";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "模电考试安排",
+        id: "MVVC机制",
         owner: "moshanyu",
         repo: "moshanyu.github.io",
         oauth: {

@@ -10,7 +10,7 @@
   
   <title>
     
-      模电考试安排 | 个人博客
+      什么是幻读 | 个人博客
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>模电考试安排</h2>
+  <h2>什么是幻读</h2>
   <p class="post-date">2018-06-07</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -147,19 +147,36 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>如图，7月8号上午9点半到11点半 <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs2yz6048cj30l50puwej.jpg" alt=""></p>
+    <section class="markdown-content"><h2 id="什么是幻读"><a href="#什么是幻读" class="headerlink" title="什么是幻读"></a>什么是幻读</h2><ul>
+<li><blockquote>
+<p> <strong>幻读</strong>是指当事务<strong>不是独立执行</strong>时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。例如，一个编辑人员更改作者提交的文档，但当生产部门将其更改内容合并到该文档的主复本时，发现作者已将未编辑的新材料添加到该文档中。如果在编辑人员和生产部门完成对原始文档的处理之前，任何人都不能将新材料添加到文档中，则可以避免该问题。</p>
+</blockquote>
+</li>
+<li>再举个例子，事务T1先是查询ID为1的用户存不存在，如果不存在则插入一条ID为1的数据，事务T1查询发现数据库中没有该用户，准备插入数据，这时候有个事务T2比T1先执行了【插入ID为1的用户数据】，所以在T1执行插入数据时会报主键冲突。</li>
+</ul>
+<h2 id="幻读的解决方式"><a href="#幻读的解决方式" class="headerlink" title="幻读的解决方式"></a>幻读的解决方式</h2><ul>
+<li>Mysql可以使用MVVC方式解决幻读。</li>
+</ul>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#模电" >
-    <span class="tag-code">模电</span>
+  <a href="/tags#MVVC" >
+    <span class="tag-code">MVVC</span>
   </a>
 
-  <a href="/tags#考试" >
-    <span class="tag-code">考试</span>
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#幻读" >
+    <span class="tag-code">幻读</span>
   </a>
 
       </div>
@@ -170,17 +187,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/06/04/第一章 常用半导体器件/">
+      <a class="nav-left" href="/2018/06/07/什么是脏读/">
         <span class="nav-arrow">← </span>
         
-          第一章 常用半导体器件
+          脏读
         
       </a>
     
     
-      <a class="nav-right" href="/2018/06/07/Mysql事务/">
+      <a class="nav-right" href="/2018/06/07/MVVC机制/">
         
-          Mysql事务
+          MVVC机制
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -212,7 +229,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是幻读"><span class="toc-nav-text">什么是幻读</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#幻读的解决方式"><span class="toc-nav-text">幻读的解决方式</span></a></li></ol>
     
   </div>
 </aside>
@@ -222,7 +239,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2018/06/07/模电考试安排/';
+    var url = 'http://yoursite.com/2018/06/07/什么是幻读/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -278,7 +295,7 @@
     var gitmentConfig = "moshanyu";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "模电考试安排",
+        id: "什么是幻读",
         owner: "moshanyu",
         repo: "moshanyu.github.io",
         oauth: {

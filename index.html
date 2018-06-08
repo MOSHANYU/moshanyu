@@ -141,6 +141,151 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2018/06/07/MVVC机制/">MVVC机制</a>
+      </h2>
+      <p class="article-date">June 7, 2018</p>
+      
+        
+  <a href="/tags#MVVC" >
+    <span class="tag-code">MVVC</span>
+  </a>
+
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#幻读" >
+    <span class="tag-code">幻读</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          什么是MVVC
+MVVC全称为Multiversion Concurrency Control，也就是多版本并发控制。
+MVVC就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。
+Mysql只有read-committed ...
+        
+      </div>
+      <a class="more" href="/2018/06/07/MVVC机制/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/06/07/什么是幻读/">什么是幻读</a>
+      </h2>
+      <p class="article-date">June 7, 2018</p>
+      
+        
+  <a href="/tags#MVVC" >
+    <span class="tag-code">MVVC</span>
+  </a>
+
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#幻读" >
+    <span class="tag-code">幻读</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          什么是幻读
+
+ 幻读是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样 ...
+        
+      </div>
+      <a class="more" href="/2018/06/07/什么是幻读/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/06/07/什么是脏读/">脏读</a>
+      </h2>
+      <p class="article-date">June 7, 2018</p>
+      
+        
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#脏读" >
+    <span class="tag-code">脏读</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+脏读又称无效数据的读出，是指在数据库访问中，事务T1将某一值修改，然后事务T2读取该值，此后T1因为某种原因撤销对该值的修改，这就导致了T2所读取到的数据是无效的。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。
+
+
+        
+      </div>
+      <a class="more" href="/2018/06/07/什么是脏读/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/06/07/Mysql事务/">Mysql事务</a>
+      </h2>
+      <p class="article-date">June 7, 2018</p>
+      
+        
+  <a href="/tags#MVVC" >
+    <span class="tag-code">MVVC</span>
+  </a>
+
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+  <a href="/tags#事务" >
+    <span class="tag-code">事务</span>
+  </a>
+
+  <a href="/tags#幻读" >
+    <span class="tag-code">幻读</span>
+  </a>
+
+  <a href="/tags#隔离级别" >
+    <span class="tag-code">隔离级别</span>
+  </a>
+
+  <a href="/tags#转载" >
+    <span class="tag-code">转载</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          什么是事务（Transaction）
+事务是应用程序中一系列严密的操作，所有操作要么全部成功，要么什么都不做。
+
+事务的四个特性（ACID）
+
+A（Atomicity）原子性：一个事务的执行被视为一个不可分割的最小单元。事务里面的操作，要么全部成功执行，要么全部失败回滚（Rollback）， ...
+        
+      </div>
+      <a class="more" href="/2018/06/07/Mysql事务/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2018/06/07/模电考试安排/">模电考试安排</a>
       </h2>
       <p class="article-date">June 7, 2018</p>
