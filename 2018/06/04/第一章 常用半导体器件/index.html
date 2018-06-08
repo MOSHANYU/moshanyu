@@ -438,19 +438,7 @@
         oauth: {
           client_id: "2f4cc5fc15002d27a38e",
           client_secret: "0c4401e1d83cafeec35ad95a5af3613cbb3e0316"
-        },
-        theme: {
-          render(state, instance) {
-            const container = document.createElement('div')
-            container.lang = "en-US"
-            container.className = 'gitment-container gitment-root-container'
-            container.appendChild(instance.renderHeader(state, instance))
-            container.appendChild(instance.renderEditor(state, instance))
-            container.appendChild(instance.renderComments(state, instance))
-            container.appendChild(instance.renderFooter(state, instance))
-            return container;
-          }
-        }
+        },        
       })
       gitment.render('comments');
 	  
