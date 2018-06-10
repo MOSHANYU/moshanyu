@@ -10,7 +10,7 @@
   
   <title>
     
-      模电考试安排 | 个人博客
+      java关于i++和++i一段很有意思的代码 | 个人博客
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>模电考试安排</h2>
-  <p class="post-date">2018-06-07</p>
+  <h2>java关于i++和++i一段很有意思的代码</h2>
+  <p class="post-date">2018-06-10</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,19 +147,27 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>如图，7月8号上午9点半到11点半 <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs2yz6048cj30l50puwej.jpg" alt=""></p>
+    <section class="markdown-content"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">a = ++a + a++;<span class="comment">// a=1+1</span></span><br><span class="line">System.out.println(<span class="string">"a="</span> + a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">b = b++ + ++b;<span class="comment">// b=0+(1+1)</span></span><br><span class="line">System.out.println(<span class="string">"b="</span> + b);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">c = c++ + c;<span class="comment">// c=0+1</span></span><br><span class="line">System.out.println(<span class="string">"c="</span> + c);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> d = <span class="number">0</span>;</span><br><span class="line">d = ++d + d;<span class="comment">// d=1+1</span></span><br><span class="line">System.out.println(<span class="string">"d="</span> + d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> e = <span class="number">0</span>;</span><br><span class="line">e = ++e + ++e;<span class="comment">// e=1+2</span></span><br><span class="line">System.out.println(<span class="string">"e="</span> + e);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">f = f++ + f++;<span class="comment">// f= 0+1</span></span><br><span class="line">System.out.println(<span class="string">"f="</span> + f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> g = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> h;</span><br><span class="line">g = g++;<span class="comment">// g=0</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g);</span><br><span class="line">g = g++;<span class="comment">// g=0</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g);</span><br><span class="line">h = g++;<span class="comment">// h=0 g=1</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g + <span class="string">",h="</span> + h);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">i = i++ + <span class="number">2</span>; <span class="comment">// i=0+2</span></span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">j = ++j + <span class="number">2</span>;<span class="comment">// j=1+2</span></span><br><span class="line">System.out.println(j);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> z;</span><br><span class="line">z = (++x == y) ? ++x : y--;<span class="comment">//++x;++x;z=11;</span></span><br><span class="line">System.out.println(<span class="string">"x="</span> + x + <span class="string">",y="</span> + y + <span class="string">",z="</span> + z);</span><br></pre></td></tr></table></figure>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#模电" >
-    <span class="tag-code">模电</span>
+  <a href="/tags#java" >
+    <span class="tag-code">java</span>
   </a>
 
-  <a href="/tags#考试" >
-    <span class="tag-code">考试</span>
+  <a href="/tags#i++" >
+    <span class="tag-code">i++</span>
+  </a>
+
+  <a href="/tags#++i" >
+    <span class="tag-code">++i</span>
+  </a>
+
+  <a href="/tags#代码" >
+    <span class="tag-code">代码</span>
   </a>
 
       </div>
@@ -170,20 +178,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2018/06/04/第一章 常用半导体器件/">
+      <a class="nav-left" href="/2018/06/07/MVVC机制/">
         <span class="nav-arrow">← </span>
         
-          第一章 常用半导体器件
+          MVVC机制
         
       </a>
     
-    
-      <a class="nav-right" href="/2018/06/07/Mysql事务/">
-        
-          Mysql事务
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -222,7 +223,7 @@
 
 <script>
   (function () {
-    var url = 'https://msyblog.top/2018/06/07/模电考试安排/';
+    var url = 'https://msyblog.top/2018/06/10/java关于i-和-i一段很有意思的代码/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -278,7 +279,7 @@
     var gitmentConfig = "moshanyu";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "模电考试安排",
+        id: "java关于i++和++i一段很有意思的代码",
         owner: "moshanyu",
         repo: "moshanyu.github.io",
         oauth: {
