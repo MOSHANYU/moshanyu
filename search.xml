@@ -1,160 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title>java关于i++和++i一段很有意思的代码</title>
-      <link href="/2018/06/10/java%E5%85%B3%E4%BA%8Ei-%E5%92%8C-i%E4%B8%80%E6%AE%B5%E5%BE%88%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E4%BB%A3%E7%A0%81/"/>
-      <url>/2018/06/10/java%E5%85%B3%E4%BA%8Ei-%E5%92%8C-i%E4%B8%80%E6%AE%B5%E5%BE%88%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
-      <content type="html"><![CDATA[<p>读完本篇文章可以基本了解Java中的i++以及++i…<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">a = ++a + a++;<span class="comment">// a=1+1</span></span><br><span class="line">System.out.println(<span class="string">"a="</span> + a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">b = b++ + ++b;<span class="comment">// b=0+(1+1)</span></span><br><span class="line">System.out.println(<span class="string">"b="</span> + b);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">c = c++ + c;<span class="comment">// c=0+1</span></span><br><span class="line">System.out.println(<span class="string">"c="</span> + c);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> d = <span class="number">0</span>;</span><br><span class="line">d = ++d + d;<span class="comment">// d=1+1</span></span><br><span class="line">System.out.println(<span class="string">"d="</span> + d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> e = <span class="number">0</span>;</span><br><span class="line">e = ++e + ++e;<span class="comment">// e=1+2</span></span><br><span class="line">System.out.println(<span class="string">"e="</span> + e);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f = <span class="number">0</span>;</span><br><span class="line">f = f++ + f++;<span class="comment">// f= 0+1</span></span><br><span class="line">System.out.println(<span class="string">"f="</span> + f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> g = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> h;</span><br><span class="line">g = g++;<span class="comment">// g=0</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g);</span><br><span class="line">g = g++;<span class="comment">// g=0</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g);</span><br><span class="line">h = g++;<span class="comment">// h=0 g=1</span></span><br><span class="line">System.out.println(<span class="string">"g="</span> + g + <span class="string">",h="</span> + h);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">i = i++ + <span class="number">2</span>; <span class="comment">// i=0+2</span></span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">j = ++j + <span class="number">2</span>;<span class="comment">// j=1+2</span></span><br><span class="line">System.out.println(j);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> z;</span><br><span class="line">z = (++x == y) ? ++x : y--;<span class="comment">//++x;++x;z=11;</span></span><br><span class="line">System.out.println(<span class="string">"x="</span> + x + <span class="string">",y="</span> + y + <span class="string">",z="</span> + z);</span><br></pre></td></tr></table></figure></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> i++ </tag>
-            
-            <tag> ++i </tag>
-            
-            <tag> 代码 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>MVVC机制</title>
-      <link href="/2018/06/07/MVVC%E6%9C%BA%E5%88%B6/"/>
-      <url>/2018/06/07/MVVC%E6%9C%BA%E5%88%B6/</url>
-      <content type="html"><![CDATA[<h2 id="什么是MVVC"><a href="#什么是MVVC" class="headerlink" title="什么是MVVC"></a>什么是MVVC</h2><ul><li>MVVC全称为Multiversion Concurrency Control，也就是<strong>多版本并发控制</strong>。<a id="more"></a></li><li>MVVC就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。</li><li>Mysql<strong>只有read-committed和 repeatable-read 两种事务隔离级别才能使用MVCC</strong>。</li></ul><h2 id="MVVC有什么用"><a href="#MVVC有什么用" class="headerlink" title="MVVC有什么用"></a>MVVC有什么用</h2><ul><li>Mysql可以通过MVVC来解决幻读问题。</li></ul>]]></content>
-      
-      
-        <tags>
-            
-            <tag> MVVC </tag>
-            
-            <tag> Mysql </tag>
-            
-            <tag> 事务 </tag>
-            
-            <tag> 幻读 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>什么是幻读</title>
-      <link href="/2018/06/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%BB%E8%AF%BB/"/>
-      <url>/2018/06/07/%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%BB%E8%AF%BB/</url>
-      <content type="html"><![CDATA[<h2 id="什么是幻读"><a href="#什么是幻读" class="headerlink" title="什么是幻读"></a>什么是幻读</h2><ul><li><blockquote><p> <strong>幻读</strong>是指当事务<strong>不是独立执行</strong>时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。<a id="more"></a>同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。例如，一个编辑人员更改作者提交的文档，但当生产部门将其更改内容合并到该文档的主复本时，发现作者已将未编辑的新材料添加到该文档中。如果在编辑人员和生产部门完成对原始文档的处理之前，任何人都不能将新材料添加到文档中，则可以避免该问题。</p></blockquote></li><li>再举个例子，事务T1先是查询ID为1的用户存不存在，如果不存在则插入一条ID为1的数据，事务T1查询发现数据库中没有该用户，准备插入数据，这时候有个事务T2比T1先执行了【插入ID为1的用户数据】，所以在T1执行插入数据时会报主键冲突。</li></ul><h2 id="幻读的解决方式"><a href="#幻读的解决方式" class="headerlink" title="幻读的解决方式"></a>幻读的解决方式</h2><ul><li>Mysql可以使用MVVC方式解决幻读。</li></ul>]]></content>
-      
-      
-        <tags>
-            
-            <tag> MVVC </tag>
-            
-            <tag> Mysql </tag>
-            
-            <tag> 事务 </tag>
-            
-            <tag> 幻读 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>脏读</title>
-      <link href="/2018/06/07/%E4%BB%80%E4%B9%88%E6%98%AF%E8%84%8F%E8%AF%BB/"/>
-      <url>/2018/06/07/%E4%BB%80%E4%B9%88%E6%98%AF%E8%84%8F%E8%AF%BB/</url>
-      <content type="html"><![CDATA[<blockquote><p>脏读又称无效数据的读出，是指在数据库访问中，事务T1将某一值修改，然后事务T2读取该值，此后T1因为某种原因撤销对该值的修改，这就导致了T2所读取到的数据是无效的。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</p></blockquote>]]></content>
-      
-      
-        <tags>
-            
-            <tag> Mysql </tag>
-            
-            <tag> 事务 </tag>
-            
-            <tag> 脏读 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Mysql事务</title>
-      <link href="/2018/06/07/Mysql%E4%BA%8B%E5%8A%A1/"/>
-      <url>/2018/06/07/Mysql%E4%BA%8B%E5%8A%A1/</url>
-      <content type="html"><![CDATA[<h2 id="什么是事务（Transaction）"><a href="#什么是事务（Transaction）" class="headerlink" title="什么是事务（Transaction）"></a>什么是事务（Transaction）</h2><blockquote><p>事务是应用程序中一系列严密的操作，所有操作要么全部成功，要么什么都不做。<br><a id="more"></a></p></blockquote><h2 id="事务的四个特性（ACID）"><a href="#事务的四个特性（ACID）" class="headerlink" title="事务的四个特性（ACID）"></a>事务的四个特性（ACID）</h2><ul><li><blockquote><p><strong>A</strong>（Atomicity）<strong>原子性</strong>：一个事务的执行被视为一个不可分割的最小单元。事务里面的操作，要么全部成功执行，要么全部失败回滚（Rollback），不可以只执行其中的一部分。</p></blockquote></li><li><blockquote><p><strong>C</strong>（Consistency）<strong>一致性</strong>：事务开始之前和结束之后，数据库的完整性不能被破坏。比如说A给B转账1000元，在A账户减去1000元后系统故障，此时必须保证A和B账户的总额是和转账前相等的。</p></blockquote></li><li><blockquote><p><strong>I</strong>（Isolation）<strong>隔离性</strong>：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（Read committed）、可重复读（Repeatable read）和串行化（Serializable）。后面会对数据库隔离性作相关的总结。</p></blockquote></li><li><blockquote><p><strong>D</strong>(durability)持久性：事务提交后，对数据的修改就是永久的，即使系统故障也不会丢失。</p></blockquote></li></ul><h2 id="事务的四种隔离级别"><a href="#事务的四种隔离级别" class="headerlink" title="事务的四种隔离级别"></a>事务的四种隔离级别</h2><h3 id="读未提交（Read-uncommitted）"><a href="#读未提交（Read-uncommitted）" class="headerlink" title="读未提交（Read uncommitted）"></a>读未提交（Read uncommitted）</h3><blockquote><p>事务中的修改，即使没有提交，在其他事务也都是可见的。事务可以读取未提交的数据，这也被称为脏读，很少用。</p></blockquote><h3 id="读提交（Read-committed）"><a href="#读提交（Read-committed）" class="headerlink" title="读提交（Read committed）"></a>读提交（Read committed）</h3><blockquote><p>这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。</p></blockquote><h3 id="可重复读（Repeatable-read）"><a href="#可重复读（Repeatable-read）" class="headerlink" title="可重复读（Repeatable read）"></a>可重复读（Repeatable read）</h3><blockquote><p>这是<strong>MySQL的默认事务隔离级别</strong>，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：<strong>幻读 （Phantom Read）</strong>。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。</p></blockquote><h3 id="串行化（Serializable）"><a href="#串行化（Serializable）" class="headerlink" title="串行化（Serializable）"></a>串行化（Serializable）</h3><blockquote><p>这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。</p></blockquote><h3 id="MVVC机制"><a href="#MVVC机制" class="headerlink" title="MVVC机制"></a>MVVC机制</h3><ul><li>MVVC全称为Multiversion Concurrency Control，也就是<strong>多版本并发控制</strong>。前面说过Mysql的默认隔离级别为可重复读（Repeatable read），在这个隔离级别中会出现幻读的问题，而MVVC机制就是解决幻读的一个方法。</li><li><blockquote><p>什么是多版本并发控制呢 ？其实就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。</p></blockquote></li><li><strong>只有read-committed和 repeatable-read 两种事务隔离级别才能使用MVCC</strong>。</li><li>read-uncommited由于是读到未提交的，所以不存在版本的问题，而serializable 则会对所有读取的行加锁。</li></ul>]]></content>
-      
-      
-        <tags>
-            
-            <tag> MVVC </tag>
-            
-            <tag> Mysql </tag>
-            
-            <tag> 事务 </tag>
-            
-            <tag> 幻读 </tag>
-            
-            <tag> 隔离级别 </tag>
-            
-            <tag> 转载 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>模电考试安排</title>
-      <link href="/2018/06/07/%E6%A8%A1%E7%94%B5%E8%80%83%E8%AF%95%E5%AE%89%E6%8E%92/"/>
-      <url>/2018/06/07/%E6%A8%A1%E7%94%B5%E8%80%83%E8%AF%95%E5%AE%89%E6%8E%92/</url>
-      <content type="html"><![CDATA[<p>如图，7月8号上午9点半到11点半 <figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs2yz6048cj30l50puwej.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p>]]></content>
-      
-      
-        <tags>
-            
-            <tag> 模电 </tag>
-            
-            <tag> 考试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>第一章 常用半导体器件</title>
-      <link href="/2018/06/04/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/"/>
-      <url>/2018/06/04/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<h2 id="1-1-半导体基础知识"><a href="#1-1-半导体基础知识" class="headerlink" title="1.1 半导体基础知识"></a>1.1 半导体基础知识</h2><h3 id="1-1-1-本征半导体"><a href="#1-1-1-本征半导体" class="headerlink" title="1.1.1 本征半导体"></a>1.1.1 本征半导体</h3><a id="more"></a><ul><li><strong>纯净的具有晶体结构</strong>的半导体称为<strong>本征半导体</strong></li><li>物质的导电性能决定于<strong>原子结构</strong></li><li>半导体三个特性：温度，杂质，光度</li><li>晶体中的原子在空间形成排列整齐的点阵，称为<strong>晶格</strong></li><li><strong>共用电子</strong> <strong>共价键</strong>【关键词，也许填空题会考】</li><li>自由电子、空穴在晶体中能自由移动</li><li>本征半导体中电流等于<strong>电子电流</strong>加上<strong>空穴电流</strong></li><li>在电场作用下，自由电子与空穴运动方向相反，但对电场作用叠加</li><li>运载电荷的粒子称为<strong>载流子</strong></li><li><blockquote><p>半导体在<strong>热激发</strong>下产生<strong>自由电子和空穴对</strong>的现象称为<strong>本征激发</strong></p></blockquote></li><li>自由电子填补空穴称为<strong>复合</strong></li><li><strong>动态平衡</strong></li></ul><hr><h3 id="1-1-2-杂质半导体"><a href="#1-1-2-杂质半导体" class="headerlink" title="1.1.2 杂质半导体"></a>1.1.2 杂质半导体</h3><ul><li><blockquote><p>在本征半导体中掺入少量合适的<strong>杂质元素</strong>，便可得到<strong>杂质半导体</strong>，按掺入的杂质元素不同，可形成<strong>N型半导体</strong>和<strong>P型半导体</strong></p></blockquote></li><li><blockquote><p>在纯净的硅晶体中掺入<strong>五价元素</strong>（如磷），使之取代晶格中硅原子的位置，就形成了<strong>N型半导体</strong>，掺入<strong>三价元素</strong>，形成<strong>P型半导体</strong></p></blockquote></li><li><strong>N</strong>型半导体中的多子为自由电子，<strong>杂质原子</strong>在晶格上形成不能移动的<strong>正离子</strong>，由于杂质原子可以提供电子，故称之为<strong>施主原子</strong></li><li><strong>P</strong>型半导体中的多子为空穴，杂质原子成为不可移动的<strong>负离子</strong>，由于杂质原子中的空位吸收电子，故称之为<strong>受主原子</strong></li></ul><hr><h3 id="1-1-3-PN结"><a href="#1-1-3-PN结" class="headerlink" title="1.1.3 PN结"></a>1.1.3 PN结</h3><ul><li>采用不同的掺杂工艺，将P型半导体与N型半导体制作在同一块硅片上，在它们的交界面就形成<strong>PN结</strong>，PN结具有<strong>单向导电性</strong></li></ul><h4 id="PN结的形成"><a href="#PN结的形成" class="headerlink" title="PN结的形成"></a>PN结的形成</h4><ul><li><blockquote><p>由浓度差产生的运动称为扩散运动</p></blockquote></li><li><strong>空间电荷区</strong></li><li><blockquote><p>随着扩散运动的进行，空间电荷区<strong>加宽</strong>，内电场<strong>增强</strong>，<strong>其方向由N区指向P区</strong>，正好阻止扩散运动的进行。</p></blockquote></li><li><blockquote><p>在电场力作用下，载流子的运动称为漂移运动。</p></blockquote></li><li>在无外电场和其它激发作用下，参与扩散运动的多子数目<strong>等于</strong>参与漂移运动的少子数目，从而达到动态平衡，形成PN结，此时，空间电荷区具有一定的宽度，电位差为<span style="color:red">$U_{ho}$</span>，电流为零。空间电荷区内，正、负电荷的电量相等；因此，当P区与N区杂质浓度相等时，负离子区与正离子区的宽度也相等，称为<strong>对称结</strong>；而当两边杂质不同时，浓度高一侧的离子区宽度低于浓度低的一侧，称为<strong>不对称PN结</strong>，两种结的外部特性是相同的</li><li>绝大部分空间电荷区内自由电子和空穴都非常少，在分析PN结特性时常忽略载流子的作用，而只考虑离子区的电荷，这种方法称为<strong>“耗尽层近似”</strong>，故也称空间电荷区为<strong>“耗尽层”</strong>（也称为势垒区或阻挡层）</li><li>如果在PN结的两端外加电压，就将破坏原来的平衡状态。此时，扩散电流就不再等于漂移电流，因而PN结将有电流流过。</li></ul><h4 id="PN结的单向导电性"><a href="#PN结的单向导电性" class="headerlink" title="PN结的单向导电性"></a>PN结的单向导电性</h4><ul><li><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0e1p5bb8j30dd0dpjrr.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li><blockquote><p>当外加电压极性不同时，PN结表现出截然不同的导电性能，即呈现出<strong>单向导电性</strong>(正偏导通，反偏截止)</p></blockquote></li><li>PN结正偏：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0ea90b8oj30aq07qjry.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li>当PN结正偏时（即外加电源正极接到P端，负极接到N端），<span class="stress-yellow">在外电场的作用下，分别将P端和N端的多子推向空间电荷区</span><span class="stress-red"><strong>【这个是不是也算漂移运动，因为这也是在电场力作用下的载流子运动？或者称为多子的漂移运动】</strong></span>，使<strong>空间电荷区变窄</strong>，<strong>削弱了内电场</strong>，破坏了原来的平衡，使<strong>扩散运动加剧，漂移运动减弱【少子的漂移运动减弱】</strong>。由于电源的作用，扩散运动将源源不断地进行，从而形成<strong>正向电流</strong>，PN结导通。</li><li><blockquote><p>PN结导通时的电压降只有零点几伏，因而应该在它所在的回路中串联一个电阻，以限制回路的电流，防止PN结因正向电流过大而损坏</p></blockquote></li><li>PN结反偏：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0eb54ab5j30bf08pgm6.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li>当PN结反偏时，外电场使<strong>空间电荷区变宽</strong>，加强了内电场，阻止扩散运动的进行，而加剧漂移运动的进行，形成<strong>反向电流</strong>，也称为漂移电流。由于少子极少，反向电流非常小，在近似分析中常将它忽略不计，认为<strong>PN结外加反向电压时处于截止状态</strong>。</li></ul><h4 id="PN结的电流方程"><a href="#PN结的电流方程" class="headerlink" title="PN结的电流方程"></a>PN结的电流方程</h4><ul><li><p>PN结所加端电压u与流过它的电流i的关系为：</p><blockquote><p>$i=I_s(e^{qu \over kt}-1)$ 　　　　　　　　　　　　　　　　　　　　　　　　　（1.1.2）</p></blockquote></li><li><p>（1.1.2）式中$I_s$为<strong>反向饱和电流</strong>，q为电子的电量，k为玻尔兹曼常数，T为热力学温度。将式中的kT/q用$U_T$取代，则得</p></li><li><blockquote><p>$i=I_s(e^{u \over U_T}-1)$　　　　　　　　　　　　　　　　　　　　　　　　　（1.1.3）</p></blockquote></li><li>常温下，即T=300K时，$U_T$≈26mV</li></ul><h4 id="PN结的伏安特性"><a href="#PN结的伏安特性" class="headerlink" title="PN结的伏安特性"></a>PN结的伏安特性</h4><ul><li>当PN结外加正向电压，且u&gt;&gt;$U_T$时，$i≈I_se^{u \over U_T}$，即i随u按指数规律变化；当PN结外加反向电压，且|u|&gt;&gt;$U_T$时，$i≈-I_s$</li><li>画出i与u的关系曲线如图所示：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0dg3uxezj30c20aimx9.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure> ，称为PN结的伏安特性。其中u&gt;0的部分为<strong>正向特性</strong>，u&lt;0的部分称为<strong>反向特性</strong>。</li><li>当反向电压超过一定数值$U_{(BR)}$后，反向电流急剧增加，称之为<strong>反向击穿</strong>。</li><li>反向击穿按机理分为<strong>齐纳击穿</strong>和<strong>雪崩击穿</strong>两种情况。</li><li><blockquote><p><strong>齐纳击穿</strong>：<strong>高掺杂</strong>情况下，因<strong>耗尽层【也称空间电荷区】宽度很窄</strong>，不大的反向电压就可以在耗尽层形成很强的电场，而直接破坏共价键，使价电子脱离共价键束缚，产生电子-空穴对，致使电流急剧增大，这种击穿称为齐纳击穿。</p></blockquote></li><li><blockquote><p><strong>雪崩击穿</strong>：<strong>掺杂浓度低</strong>，<strong>耗尽层较宽</strong>，低电压下不会产生齐纳击穿。当反向电压增加到较大数值时，耗尽层的电场使少子加快漂移速度，从而与共价键中的价电子相碰撞，把价电子撞出共价键，产生电子-空穴对。新产生的电子与空穴被电场加速后又撞出其它价电子，载流子雪崩式地倍增，致使电流急剧增加，这种击穿称为雪崩击穿。</p></blockquote></li></ul><h4 id="PN结的电容效应"><a href="#PN结的电容效应" class="headerlink" title="PN结的电容效应"></a>PN结的电容效应</h4><ul><li>在一定条件，PN结具有电容效应，根据产生原因不同分为<strong>势垒电容</strong>和<strong>扩散电容</strong></li><li><blockquote><p><strong>势垒电容</strong>：当PN结外加电压变化时，空间电荷区的宽度将随之变化，即耗尽层的电荷量随外加电压而增大或减小，这种现象与电容器的充放电过程相同。<span class="stress-yellow">耗尽层宽窄变化所等效的电容称为<strong>势垒电容$C_b$</strong></span>。$C_b$<strong>具有非线性，它与结面积、耗尽层宽度、半导体的介电常数及外加电压有关</strong>。</p></blockquote></li><li>下图为势垒电容$C_b$与外加电压u的关系：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0nn1wh8rj30hc0cqt8v.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li><blockquote><p>PN结处于平衡状态时的少子常称为<strong>平衡少子</strong>。PN结处于<strong>正向偏置</strong>时，从P区扩散到N区的<strong>空穴</strong>和从N区扩散到P区的<strong>自由电子</strong>均称为<strong>非平衡少子</strong>。&nbsp;&nbsp;&nbsp;&nbsp;当外加正向电压一定时，靠近耗尽层交界面的地方非平衡少子的浓度高，而远离交界面的地方浓度低，且浓度自高到底逐渐衰减，直到零。形成一定的<strong>浓度梯度【即浓度差】</strong>，从而形成<strong>扩散电流</strong>。当正向外加电压增大时，非平衡少子的浓度增大且浓度梯度也增大，从外部看正向电流（即扩散电流）增大。当外加正向电压减小时与上述变化相反。</p><blockquote><p>扩散区内，电荷的积累和释放过程中与电容器充放电过程相同，这种电容效应称为<strong>扩散电容$C_d$</strong>。和$C_b$一样，$C_d$也具有非线性，它与流过PN结的争相电流i、温度的电压当量$U_T$以及非平衡少子的寿命τ有关。i越大、τ越大、$U_T$越小，$C_d$寿命就越大。</p></blockquote></blockquote></li><li><p>由此可见，PN结的结电容$C_j$是$C_b$与$C_d$之和，即<span class="stress-yellow">$C_j$=$C_b$+$C_d$</span></p></li><li>由于$C_b$与$C_d$一般都很小，对于低频信号呈现出很大的容抗，其作用可忽略不计，因此只有在信号频率较高时才考虑结电容的作用。</li></ul><h2 id="1-2-半导体二极管"><a href="#1-2-半导体二极管" class="headerlink" title="1.2 半导体二极管"></a>1.2 半导体二极管</h2><ul><li>将PN结用外壳封装起来，并加上电极引线就构成了半导体二极管，简称二极管。</li></ul><h3 id="1-2-1-二极管的几种常见结构"><a href="#1-2-1-二极管的几种常见结构" class="headerlink" title="1.2.1 二极管的几种常见结构"></a>1.2.1 二极管的几种常见结构</h3><ul><li><strong>点接触型二极管</strong>由一根金属丝经过特殊工艺与半导体表面相接形成PN结。因而结面积小，不能通过较大的电流。但其结电容较小，因此<strong>适用于高频电路和小功率整流</strong>。</li><li><strong>面接触型二极管</strong>是采用合金法工艺制成的。结面积大，能够通过较大的电流，但其结电容大，因而只能在较低频率下工作，<strong>一般仅作为整流管。</strong></li><li><strong>平面二极管</strong>是采用扩散法制成的。<strong>结面积较大的可用于大功率整流，结面积小的可作为脉冲数字电路中的开关管。</strong></li></ul><h3 id="1-2-2-二极管的伏安特性"><a href="#1-2-2-二极管的伏安特性" class="headerlink" title="1.2.2 二极管的伏安特性"></a>1.2.2 二极管的伏安特性</h3><h4 id="二极管和PN结伏安特性的区别"><a href="#二极管和PN结伏安特性的区别" class="headerlink" title="二极管和PN结伏安特性的区别"></a>二极管和PN结伏安特性的区别</h4><ul><li>与PN结一样，二极管具有单向导电性。但是，由于二极管存在半导体<strong>体电阻</strong>和<strong>引线电阻</strong>，所以在外加正向电压时，在电流相同的情况下，二极管的端电压大于PN结上的压降；或者说，<span class="stress-yellow"><strong>①在外加电压相同的情况下，二极管的正向电流要小于PN结的电流</strong></span>；在大电流的情况下，这种情况更为明显。另外，由于二极管表面漏电流的存在，使外加反向电压时的反向电流增大。</li><li>在近似分析时，仍然用PN结的电流方程式（1.1.2）、（1.1.3）来描述二极管的伏安特性。</li><li>实测二极管的伏安特性时发现，<span class="stress-yellow"><strong>②只有在正向电压足够大时，正向电流才从零端随电压按指数规律增大</strong></span>。使二极管开始导通的临界电压称为<strong>开启电压$U_{on}$</strong>，如图所示：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://ww1.sinaimg.cn/large/006trz56gy1fs0pq1q5yzj30dm08zq2v.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>当二极管所加反向电压的数值足够大时，反向电流为$I_s$。反向电压太大使二极管击穿。</li><li>由于硅材料PN结平衡时耗尽层电势$U_{ho}$比锗材料的大，使得硅材料的$U{on}$比锗材料的大。<h4 id="温度对二极管伏安特性的影响"><a href="#温度对二极管伏安特性的影响" class="headerlink" title="温度对二极管伏安特性的影响"></a>温度对二极管伏安特性的影响</h4></li><li>在环境温度升高时，二极管的正向特性曲线将<strong>左移</strong>，反向特性曲线将<strong>下移</strong>。二极管的特性对温度很敏感。</li></ul><h3 id="1-2-3-二极管的主要参数"><a href="#1-2-3-二极管的主要参数" class="headerlink" title="1.2.3 二极管的主要参数"></a>1.2.3 二极管的主要参数</h3><ul><li>为描述二极管的性能，常引用如下几个参数：最大整流电流$I_F$、最高反向工作电压$U_R$、反向电流$I_R$，最高工作频率$f_M$。</li><li><blockquote><p><strong>最大整流电流$I_F$</strong>是二极管长期运行时允许通过的最大正向平均电流，其值与PN结面积及外部散热条件等有关。</p></blockquote></li><li><blockquote><p><strong>最高反向工作电压$U_R$</strong>是二极管工作时允许外加的最大反向电压。</p></blockquote></li><li><blockquote><p><strong>反向电流$I_R$</strong>是二极管未击穿时的反向电流，$I_R$越小，二极管的单向导电性越好，$I_R$对温度非常敏感。</p></blockquote></li><li><blockquote><p><strong>最高工作频率$f_M$</strong>是二极管的工作上限截止频率。超过此值时，由于结电容的作用，二极管将不能很好地体现出单向导电性。</p></blockquote></li></ul><h3 id="1-2-4-二极管的等效电路"><a href="#1-2-4-二极管的等效电路" class="headerlink" title="1.2.4 二极管的等效电路"></a>1.2.4 二极管的等效电路</h3><ul><li>能够模拟二极管特性的电路称为二极管的<strong>等效电路</strong>，也称为二极管的<strong>等效模型</strong>。</li></ul>]]></content>
-      
+<search>
+  <entry>
+    <title><![CDATA[java关于i++和++i一段很有意思的代码]]></title>
+    <url>%2F2018%2F06%2F10%2Fjava%E5%85%B3%E4%BA%8Ei-%E5%92%8C-i%E4%B8%80%E6%AE%B5%E5%BE%88%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E4%BB%A3%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[读完本篇文章可以基本了解Java中的i++以及++i…12345678910111213141516171819202122232425262728293031323334353637383940414243444546int a = 0;a = ++a + a++;// a=1+1System.out.println("a=" + a);int b = 0;b = b++ + ++b;// b=0+(1+1)System.out.println("b=" + b);int c = 0;c = c++ + c;// c=0+1System.out.println("c=" + c);int d = 0;d = ++d + d;// d=1+1System.out.println("d=" + d);int e = 0;e = ++e + ++e;// e=1+2System.out.println("e=" + e);int f = 0;f = f++ + f++;// f= 0+1System.out.println("f=" + f);int g = 0;int h;g = g++;// g=0System.out.println("g=" + g);g = g++;// g=0System.out.println("g=" + g);h = g++;// h=0 g=1System.out.println("g=" + g + ",h=" + h);int i = 0;i = i++ + 2; // i=0+2System.out.println(i);int j = 0;j = ++j + 2;// j=1+2System.out.println(j);int x = 9;int y = 10;int z;z = (++x == y) ? ++x : y--;//++x;++x;z=11;System.out.println("x=" + x + ",y=" + y + ",z=" + z);]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>i++</tag>
+        <tag>++i</tag>
+        <tag>代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MVVC机制]]></title>
+    <url>%2F2018%2F06%2F07%2FMVVC%E6%9C%BA%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[什么是MVVC MVVC全称为Multiversion Concurrency Control，也就是多版本并发控制。 MVVC就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。 Mysql只有read-committed和 repeatable-read 两种事务隔离级别才能使用MVCC。 MVVC有什么用 Mysql可以通过MVVC来解决幻读问题。]]></content>
+      <tags>
+        <tag>MVVC</tag>
+        <tag>Mysql</tag>
+        <tag>事务</tag>
+        <tag>幻读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[什么是幻读]]></title>
+    <url>%2F2018%2F06%2F07%2F%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%BB%E8%AF%BB%2F</url>
+    <content type="text"><![CDATA[什么是幻读 幻读是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。例如，一个编辑人员更改作者提交的文档，但当生产部门将其更改内容合并到该文档的主复本时，发现作者已将未编辑的新材料添加到该文档中。如果在编辑人员和生产部门完成对原始文档的处理之前，任何人都不能将新材料添加到文档中，则可以避免该问题。 再举个例子，事务T1先是查询ID为1的用户存不存在，如果不存在则插入一条ID为1的数据，事务T1查询发现数据库中没有该用户，准备插入数据，这时候有个事务T2比T1先执行了【插入ID为1的用户数据】，所以在T1执行插入数据时会报主键冲突。 幻读的解决方式 Mysql可以使用MVVC方式解决幻读。]]></content>
+      <tags>
+        <tag>MVVC</tag>
+        <tag>Mysql</tag>
+        <tag>事务</tag>
+        <tag>幻读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[脏读]]></title>
+    <url>%2F2018%2F06%2F07%2F%E4%BB%80%E4%B9%88%E6%98%AF%E8%84%8F%E8%AF%BB%2F</url>
+    <content type="text"><![CDATA[脏读又称无效数据的读出，是指在数据库访问中，事务T1将某一值修改，然后事务T2读取该值，此后T1因为某种原因撤销对该值的修改，这就导致了T2所读取到的数据是无效的。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。]]></content>
+      <tags>
+        <tag>Mysql</tag>
+        <tag>事务</tag>
+        <tag>脏读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mysql事务]]></title>
+    <url>%2F2018%2F06%2F07%2FMysql%E4%BA%8B%E5%8A%A1%2F</url>
+    <content type="text"><![CDATA[什么是事务（Transaction） 事务是应用程序中一系列严密的操作，所有操作要么全部成功，要么什么都不做。 事务的四个特性（ACID） A（Atomicity）原子性：一个事务的执行被视为一个不可分割的最小单元。事务里面的操作，要么全部成功执行，要么全部失败回滚（Rollback），不可以只执行其中的一部分。 C（Consistency）一致性：事务开始之前和结束之后，数据库的完整性不能被破坏。比如说A给B转账1000元，在A账户减去1000元后系统故障，此时必须保证A和B账户的总额是和转账前相等的。 I（Isolation）隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（Read committed）、可重复读（Repeatable read）和串行化（Serializable）。后面会对数据库隔离性作相关的总结。 D(durability)持久性：事务提交后，对数据的修改就是永久的，即使系统故障也不会丢失。 事务的四种隔离级别读未提交（Read uncommitted） 事务中的修改，即使没有提交，在其他事务也都是可见的。事务可以读取未提交的数据，这也被称为脏读，很少用。 读提交（Read committed） 这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。 可重复读（Repeatable read） 这是MySQL的默认事务隔离级别，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：幻读 （Phantom Read）。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。 串行化（Serializable） 这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。 MVVC机制 MVVC全称为Multiversion Concurrency Control，也就是多版本并发控制。前面说过Mysql的默认隔离级别为可重复读（Repeatable read），在这个隔离级别中会出现幻读的问题，而MVVC机制就是解决幻读的一个方法。 什么是多版本并发控制呢 ？其实就是在每一行记录的后面增加两个隐藏列，记录创建版本号和删除版本号，而每一个事务在启动的时候，都有一个唯一的递增的版本号。 只有read-committed和 repeatable-read 两种事务隔离级别才能使用MVCC。 read-uncommited由于是读到未提交的，所以不存在版本的问题，而serializable 则会对所有读取的行加锁。]]></content>
+      <tags>
+        <tag>MVVC</tag>
+        <tag>Mysql</tag>
+        <tag>事务</tag>
+        <tag>幻读</tag>
+        <tag>隔离级别</tag>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[模电考试安排]]></title>
+    <url>%2F2018%2F06%2F07%2F%E6%A8%A1%E7%94%B5%E8%80%83%E8%AF%95%E5%AE%89%E6%8E%92%2F</url>
+    <content type="text"><![CDATA[如图，7月8号上午9点半到11点半]]></content>
+      <tags>
+        <tag>模电</tag>
+        <tag>考试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第一章 常用半导体器件]]></title>
+    <url>%2F2018%2F06%2F04%2F%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[1.1 半导体基础知识1.1.1 本征半导体 纯净的具有晶体结构的半导体称为本征半导体 物质的导电性能决定于原子结构 半导体三个特性：温度，杂质，光度 晶体中的原子在空间形成排列整齐的点阵，称为晶格 共用电子 共价键【关键词，也许填空题会考】 自由电子、空穴在晶体中能自由移动 本征半导体中电流等于电子电流加上空穴电流 在电场作用下，自由电子与空穴运动方向相反，但对电场作用叠加 运载电荷的粒子称为载流子 半导体在热激发下产生自由电子和空穴对的现象称为本征激发 自由电子填补空穴称为复合 动态平衡 1.1.2 杂质半导体 在本征半导体中掺入少量合适的杂质元素，便可得到杂质半导体，按掺入的杂质元素不同，可形成N型半导体和P型半导体 在纯净的硅晶体中掺入五价元素（如磷），使之取代晶格中硅原子的位置，就形成了N型半导体，掺入三价元素，形成P型半导体 N型半导体中的多子为自由电子，杂质原子在晶格上形成不能移动的正离子，由于杂质原子可以提供电子，故称之为施主原子 P型半导体中的多子为空穴，杂质原子成为不可移动的负离子，由于杂质原子中的空位吸收电子，故称之为受主原子 1.1.3 PN结 采用不同的掺杂工艺，将P型半导体与N型半导体制作在同一块硅片上，在它们的交界面就形成PN结，PN结具有单向导电性 PN结的形成 由浓度差产生的运动称为扩散运动 空间电荷区 随着扩散运动的进行，空间电荷区加宽，内电场增强，其方向由N区指向P区，正好阻止扩散运动的进行。 在电场力作用下，载流子的运动称为漂移运动。 在无外电场和其它激发作用下，参与扩散运动的多子数目等于参与漂移运动的少子数目，从而达到动态平衡，形成PN结，此时，空间电荷区具有一定的宽度，电位差为$U_{ho}$，电流为零。空间电荷区内，正、负电荷的电量相等；因此，当P区与N区杂质浓度相等时，负离子区与正离子区的宽度也相等，称为对称结；而当两边杂质不同时，浓度高一侧的离子区宽度低于浓度低的一侧，称为不对称PN结，两种结的外部特性是相同的 绝大部分空间电荷区内自由电子和空穴都非常少，在分析PN结特性时常忽略载流子的作用，而只考虑离子区的电荷，这种方法称为“耗尽层近似”，故也称空间电荷区为“耗尽层”（也称为势垒区或阻挡层） 如果在PN结的两端外加电压，就将破坏原来的平衡状态。此时，扩散电流就不再等于漂移电流，因而PN结将有电流流过。 PN结的单向导电性 当外加电压极性不同时，PN结表现出截然不同的导电性能，即呈现出单向导电性(正偏导通，反偏截止) PN结正偏： 当PN结正偏时（即外加电源正极接到P端，负极接到N端），在外电场的作用下，分别将P端和N端的多子推向空间电荷区【这个是不是也算漂移运动，因为这也是在电场力作用下的载流子运动？或者称为多子的漂移运动】，使空间电荷区变窄，削弱了内电场，破坏了原来的平衡，使扩散运动加剧，漂移运动减弱【少子的漂移运动减弱】。由于电源的作用，扩散运动将源源不断地进行，从而形成正向电流，PN结导通。 PN结导通时的电压降只有零点几伏，因而应该在它所在的回路中串联一个电阻，以限制回路的电流，防止PN结因正向电流过大而损坏 PN结反偏： 当PN结反偏时，外电场使空间电荷区变宽，加强了内电场，阻止扩散运动的进行，而加剧漂移运动的进行，形成反向电流，也称为漂移电流。由于少子极少，反向电流非常小，在近似分析中常将它忽略不计，认为PN结外加反向电压时处于截止状态。 PN结的电流方程 PN结所加端电压u与流过它的电流i的关系为： $i=I_s(e^{qu \over kt}-1)$ （1.1.2） （1.1.2）式中$I_s$为反向饱和电流，q为电子的电量，k为玻尔兹曼常数，T为热力学温度。将式中的kT/q用$U_T$取代，则得 $i=I_s(e^{u \over U_T}-1)$ （1.1.3） 常温下，即T=300K时，$U_T$≈26mV PN结的伏安特性 当PN结外加正向电压，且u&gt;&gt;$U_T$时，$i≈I_se^{u \over U_T}$，即i随u按指数规律变化；当PN结外加反向电压，且|u|&gt;&gt;$U_T$时，$i≈-I_s$ 画出i与u的关系曲线如图所示： ，称为PN结的伏安特性。其中u&gt;0的部分为正向特性，u&lt;0的部分称为反向特性。 当反向电压超过一定数值$U_{(BR)}$后，反向电流急剧增加，称之为反向击穿。 反向击穿按机理分为齐纳击穿和雪崩击穿两种情况。 齐纳击穿：高掺杂情况下，因耗尽层【也称空间电荷区】宽度很窄，不大的反向电压就可以在耗尽层形成很强的电场，而直接破坏共价键，使价电子脱离共价键束缚，产生电子-空穴对，致使电流急剧增大，这种击穿称为齐纳击穿。 雪崩击穿：掺杂浓度低，耗尽层较宽，低电压下不会产生齐纳击穿。当反向电压增加到较大数值时，耗尽层的电场使少子加快漂移速度，从而与共价键中的价电子相碰撞，把价电子撞出共价键，产生电子-空穴对。新产生的电子与空穴被电场加速后又撞出其它价电子，载流子雪崩式地倍增，致使电流急剧增加，这种击穿称为雪崩击穿。 PN结的电容效应 在一定条件，PN结具有电容效应，根据产生原因不同分为势垒电容和扩散电容 势垒电容：当PN结外加电压变化时，空间电荷区的宽度将随之变化，即耗尽层的电荷量随外加电压而增大或减小，这种现象与电容器的充放电过程相同。耗尽层宽窄变化所等效的电容称为势垒电容$C_b$。$C_b$具有非线性，它与结面积、耗尽层宽度、半导体的介电常数及外加电压有关。 下图为势垒电容$C_b$与外加电压u的关系： PN结处于平衡状态时的少子常称为平衡少子。PN结处于正向偏置时，从P区扩散到N区的空穴和从N区扩散到P区的自由电子均称为非平衡少子。&nbsp;&nbsp;&nbsp;&nbsp;当外加正向电压一定时，靠近耗尽层交界面的地方非平衡少子的浓度高，而远离交界面的地方浓度低，且浓度自高到底逐渐衰减，直到零。形成一定的浓度梯度【即浓度差】，从而形成扩散电流。当正向外加电压增大时，非平衡少子的浓度增大且浓度梯度也增大，从外部看正向电流（即扩散电流）增大。当外加正向电压减小时与上述变化相反。 扩散区内，电荷的积累和释放过程中与电容器充放电过程相同，这种电容效应称为扩散电容$C_d$。和$C_b$一样，$C_d$也具有非线性，它与流过PN结的争相电流i、温度的电压当量$U_T$以及非平衡少子的寿命τ有关。i越大、τ越大、$U_T$越小，$C_d$寿命就越大。 由此可见，PN结的结电容$C_j$是$C_b$与$C_d$之和，即$C_j$=$C_b$+$C_d$ 由于$C_b$与$C_d$一般都很小，对于低频信号呈现出很大的容抗，其作用可忽略不计，因此只有在信号频率较高时才考虑结电容的作用。 1.2 半导体二极管 将PN结用外壳封装起来，并加上电极引线就构成了半导体二极管，简称二极管。 1.2.1 二极管的几种常见结构 点接触型二极管由一根金属丝经过特殊工艺与半导体表面相接形成PN结。因而结面积小，不能通过较大的电流。但其结电容较小，因此适用于高频电路和小功率整流。 面接触型二极管是采用合金法工艺制成的。结面积大，能够通过较大的电流，但其结电容大，因而只能在较低频率下工作，一般仅作为整流管。 平面二极管是采用扩散法制成的。结面积较大的可用于大功率整流，结面积小的可作为脉冲数字电路中的开关管。 1.2.2 二极管的伏安特性二极管和PN结伏安特性的区别 与PN结一样，二极管具有单向导电性。但是，由于二极管存在半导体体电阻和引线电阻，所以在外加正向电压时，在电流相同的情况下，二极管的端电压大于PN结上的压降；或者说，①在外加电压相同的情况下，二极管的正向电流要小于PN结的电流；在大电流的情况下，这种情况更为明显。另外，由于二极管表面漏电流的存在，使外加反向电压时的反向电流增大。 在近似分析时，仍然用PN结的电流方程式（1.1.2）、（1.1.3）来描述二极管的伏安特性。 实测二极管的伏安特性时发现，②只有在正向电压足够大时，正向电流才从零端随电压按指数规律增大。使二极管开始导通的临界电压称为开启电压$U_{on}$，如图所示： 当二极管所加反向电压的数值足够大时，反向电流为$I_s$。反向电压太大使二极管击穿。 由于硅材料PN结平衡时耗尽层电势$U_{ho}$比锗材料的大，使得硅材料的$U{on}$比锗材料的大。温度对二极管伏安特性的影响 在环境温度升高时，二极管的正向特性曲线将左移，反向特性曲线将下移。二极管的特性对温度很敏感。 1.2.3 二极管的主要参数 为描述二极管的性能，常引用如下几个参数：最大整流电流$I_F$、最高反向工作电压$U_R$、反向电流$I_R$，最高工作频率$f_M$。 最大整流电流$I_F$是二极管长期运行时允许通过的最大正向平均电流，其值与PN结面积及外部散热条件等有关。 最高反向工作电压$U_R$是二极管工作时允许外加的最大反向电压。 反向电流$I_R$是二极管未击穿时的反向电流，$I_R$越小，二极管的单向导电性越好，$I_R$对温度非常敏感。 最高工作频率$f_M$是二极管的工作上限截止频率。超过此值时，由于结电容的作用，二极管将不能很好地体现出单向导电性。 1.2.4 二极管的等效电路 能够模拟二极管特性的电路称为二极管的等效电路，也称为二极管的等效模型。]]></content>
       <categories>
-          
-          <category> 模电 </category>
-          
+        <category>模电</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 模电 </tag>
-            
-            <tag> 电路 </tag>
-            
-            <tag> 半导体 </tag>
-            
-            <tag> 二极管 </tag>
-            
-            <tag> 伏安特性 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-  
-  
+      <tags>
+        <tag>模电</tag>
+        <tag>电路</tag>
+        <tag>半导体</tag>
+        <tag>二极管</tag>
+        <tag>伏安特性</tag>
+      </tags>
+  </entry>
 </search>
