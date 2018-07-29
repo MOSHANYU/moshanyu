@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?00b3c6a3ffd451cb7f8338008fa36924"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="true/2018/07/30/设计模式之单例模式/">
+    
+    
+    <title>设计模式之单例模式 | Mo Shanyu&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="设计模式,单例模式">
+    <meta name="description" content="什么是单例模式　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。">
+<meta name="keywords" content="设计模式,单例模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之单例模式">
+<meta property="og:url" content="https://msyblog.top/2018/07/30/设计模式之单例模式/index.html">
+<meta property="og:site_name" content="Mo Shanyu&#39;s blog">
+<meta property="og:description" content="什么是单例模式　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-29T19:39:20.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之单例模式">
+<meta name="twitter:description" content="什么是单例模式　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Mo Shanyu&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://i.loli.net/2018/06/11/5b1df863e05e7.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://i.loli.net/2018/06/11/5b1decb5662df.jpg)">
+      <div class="brand">
+        <a href="/about" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://i.loli.net/2018/06/11/5b1decb4aa7df.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Mo Shanyu</h5>
+          <a href="mailto:1191872604@qq.com" title="1191872604@qq.com" class="mail">1191872604@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/MOSHANYU" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/u/5931880448" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">设计模式之单例模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">设计模式之单例模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-29T16:20:14.000Z" itemprop="datePublished" class="page-time">
+  2018-07-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是单例模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是单例模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单例模式的特点"><span class="post-toc-number">2.</span> <span class="post-toc-text">单例模式的特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见的单例模式例子"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见的单例模式例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单例模式的Java实现"><span class="post-toc-number">4.</span> <span class="post-toc-text">单例模式的Java实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#懒汉模式"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">懒汉模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非线程安全的懒汉模式"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">非线程安全的懒汉模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#双检锁加volatile-ˈvɒlətaɪl-实现线程安全的懒汉模式"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">双检锁加volatile [ˈvɒlətaɪl]实现线程安全的懒汉模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#饿汉模式实现"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">饿汉模式实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#枚举实现单例模式"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">枚举实现单例模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现登记式单例模式"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">实现登记式单例模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接（侵删）"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考链接（侵删）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-设计模式之单例模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">设计模式之单例模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-30 00:20:14" datetime="2018-07-29T16:20:14.000Z"  itemprop="datePublished">2018-07-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="什么是单例模式"><a href="#什么是单例模式" class="headerlink" title="什么是单例模式"></a>什么是单例模式</h2><p>　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一个实例。即一个类只有一个对象实例。<a id="more"></a><br>　　单例模式可分为<strong>懒汉模式</strong>，<strong>饿汉模式</strong>和<strong>登记式单例模式</strong>。</p>
+<h2 id="单例模式的特点"><a href="#单例模式的特点" class="headerlink" title="单例模式的特点"></a>单例模式的特点</h2><ul>
+<li>单例模式只能有一个实例</li>
+<li>单例类必须创建自己的唯一实例</li>
+<li>单例类必须给其他对象提供这一实例</li>
+<li>私有构造函数</li>
+<li>私有的静态的全局变量</li>
+<li>公有的静态的方法</li>
+</ul>
+<h2 id="常见的单例模式例子"><a href="#常见的单例模式例子" class="headerlink" title="常见的单例模式例子"></a>常见的单例模式例子</h2><ul>
+<li>线程池</li>
+<li>缓存</li>
+<li>日志对象</li>
+<li>对话框</li>
+<li>spring的controller</li>
+<li>自定义的HibernateUtil在获取SessionFactory时使用单例</li>
+</ul>
+<h2 id="单例模式的Java实现"><a href="#单例模式的Java实现" class="headerlink" title="单例模式的Java实现"></a>单例模式的Java实现</h2><h3 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h3><h4 id="非线程安全的懒汉模式"><a href="#非线程安全的懒汉模式" class="headerlink" title="非线程安全的懒汉模式"></a>非线程安全的懒汉模式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTonLazyLoadUnsafety</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingleTonLazyLoadUnsafety instance;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleTonLazyLoadUnsafety</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTonLazyLoadUnsafety <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			instance = <span class="keyword">new</span> SingleTonLazyLoadUnsafety();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="双检锁加volatile-ˈvɒlətaɪl-实现线程安全的懒汉模式"><a href="#双检锁加volatile-ˈvɒlətaɪl-实现线程安全的懒汉模式" class="headerlink" title="双检锁加volatile [ˈvɒlətaɪl]实现线程安全的懒汉模式"></a>双检锁加volatile [ˈvɒlətaɪl]实现线程安全的懒汉模式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonLazyLoadSafety</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> SingletonLazyLoadSafety instance;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingletonLazyLoadSafety</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonLazyLoadSafety <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (SingletonLazyLoadSafety.class) &#123;</span><br><span class="line">				<span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">					instance = <span class="keyword">new</span> SingletonLazyLoadSafety();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　通过synchronized实现线程同步，volatile防止系统进行指令重排序，这两个关键字是必不可少的。如果不加上volatile，在instance = new SingletonLazyLoadSafety()这段代码中可能会出现指令重排序，线程获取到的实例可能会是空值。具体参考<a href="https://www.jianshu.com/p/17ed6a46ed85。" target="_blank" rel="noopener">https://www.jianshu.com/p/17ed6a46ed85。</a></p>
+<h3 id="饿汉模式实现"><a href="#饿汉模式实现" class="headerlink" title="饿汉模式实现"></a>饿汉模式实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHungary</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SingletonHungary instance = <span class="keyword">new</span> SingletonHungary();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingletonHungary</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonHungary <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　也可以在静态代码块中初始化instance，效果差不多。</p>
+<h3 id="枚举实现单例模式"><a href="#枚举实现单例模式" class="headerlink" title="枚举实现单例模式"></a>枚举实现单例模式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> EnumSingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Singleton.INSTANCE.getInstance();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">enum</span> Singleton &#123;</span><br><span class="line">		INSTANCE;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">private</span> EnumSingleton instance;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> EnumSingleton();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> EnumSingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> instance;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现登记式单例模式"><a href="#实现登记式单例模式" class="headerlink" title="实现登记式单例模式"></a>实现登记式单例模式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, RegisterSingleton&gt; singletons = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		RegisterSingleton registerSingleton = <span class="keyword">new</span> RegisterSingleton();</span><br><span class="line">		singletons.put(registerSingleton.getClass().getName(), registerSingleton);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 保护默认构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="title">RegisterSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 静态工厂方法，返回此类的唯一实例</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RegisterSingleton <span class="title">getInstance</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (name == <span class="keyword">null</span> || name.trim().length() &lt; <span class="number">1</span>) &#123;</span><br><span class="line">			name = RegisterSingleton.class.getName();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (singletons.get(name) == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				singletons.put(name, (RegisterSingleton) Class.forName(name).newInstance());</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InstantiationException | IllegalAccessException | ClassNotFoundException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singletons.get(name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChildOfRegisterSingleton</span> <span class="keyword">extends</span> <span class="title">RegisterSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//	private ChildOfRegisterSingleton() &#123;&#125; 这个不能加，加了会报错，不能反射</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ChildOfRegisterSingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"getInstance --&gt; "</span>+RegisterSingleton.class.getName());</span><br><span class="line">		<span class="keyword">return</span> (ChildOfRegisterSingleton) RegisterSingleton.getInstance(ChildOfRegisterSingleton.class.getName());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getHashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"hashCode:"</span>+getInstance().hashCode();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　相当于有一个容器装载所有实例，在实例产生之前先检查下容器有没有，如果有就直接取出来，如果没有就先new一个放进去，然后给后面的人用，Spring的IOC容器就是一种注册登记式单例。<br>　　登记式单例实际上维护了一种单例类的实例，将这些实例存放在一个Map中，对于已经登记过的实例，则从Map直接返回，没有登记的，则先登记，然后返回。<br>　　登记式单例内部实现其实还是用的饿汉式，因为其中的static方法块，它的的单例在类被装载时就被实例化了。</p>
+<h2 id="参考链接（侵删）"><a href="#参考链接（侵删）" class="headerlink" title="参考链接（侵删）"></a>参考链接（侵删）</h2><ul>
+<li><a href="https://www.cnblogs.com/Ycheng/p/7169381.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ycheng/p/7169381.html</a></li>
+<li><a href="https://www.cnblogs.com/yangzhilong/p/6148639.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangzhilong/p/6148639.html</a></li>
+<li><a href="https://blog.csdn.net/qq_36413562/article/details/78768155" target="_blank" rel="noopener">https://blog.csdn.net/qq_36413562/article/details/78768155</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-29T19:39:20.294Z" itemprop="dateUpdated">2018-07-30 03:39:20</time>
+</span><br>
+
+
+        
+        ^_^
+        
+    </div>
+    
+    <footer>
+        <a href="https://msyblog.top">
+            <img src="https://i.loli.net/2018/06/11/5b1decb4aa7df.jpg" alt="Mo Shanyu">
+            Mo Shanyu
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例模式/">单例模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://msyblog.top/2018/07/30/设计模式之单例模式/&title=《设计模式之单例模式》 — Mo Shanyu's blog&pic=https://i.loli.net/2018/06/11/5b1decb4aa7df.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://msyblog.top/2018/07/30/设计模式之单例模式/&title=《设计模式之单例模式》 — Mo Shanyu's blog&source=什么是单例模式　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://msyblog.top/2018/07/30/设计模式之单例模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《设计模式之单例模式》 — Mo Shanyu's blog&url=https://msyblog.top/2018/07/30/设计模式之单例模式/&via=https://msyblog.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://msyblog.top/2018/07/30/设计模式之单例模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/30/同步和异步 阻塞和非阻塞/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">同步和异步 阻塞和非阻塞</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/13/晶体三极管/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">晶体三极管基础符号及公式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+		    id: "设计模式之单例模式",
+            owner: 'moshanyu',
+            repo: 'moshanyu.github.io',
+            oauth: {
+                client_id: '2f4cc5fc15002d27a38e',
+                client_secret: '0c4401e1d83cafeec35ad95a5af3613cbb3e0316',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大佬~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://i.loli.net/2018/06/11/5b1decb5df8e7.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://i.loli.net/2018/06/11/5b1decb5df8e7.png" data-alipay="https://i.loli.net/2018/07/30/5b5e176b06e1f.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+    </div>
+    <div class="bottom">
+        <p><span>Mo Shanyu &copy; 2018</span>
+            <span>
+                              
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://msyblog.top/2018/07/30/设计模式之单例模式/&title=《设计模式之单例模式》 — Mo Shanyu's blog&pic=https://i.loli.net/2018/06/11/5b1decb4aa7df.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://msyblog.top/2018/07/30/设计模式之单例模式/&title=《设计模式之单例模式》 — Mo Shanyu's blog&source=什么是单例模式　　单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的类一个类只有一..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://msyblog.top/2018/07/30/设计模式之单例模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《设计模式之单例模式》 — Mo Shanyu's blog&url=https://msyblog.top/2018/07/30/设计模式之单例模式/&via=https://msyblog.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://msyblog.top/2018/07/30/设计模式之单例模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://msyblog.top/2018/07/30/设计模式之单例模式/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '个人博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'msyblog.top';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
