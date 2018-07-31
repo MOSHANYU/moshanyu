@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[设计模式六大原则]]></title>
+    <url>%2F2018%2F08%2F01%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99%2F</url>
+    <content type="text"><![CDATA[1.单一职责原则 不要存在多于一个导致类变更的原因。 2.里氏替换原则 子类可以扩展父类的功能，但不能改变父类原有的功能。 3.依赖倒置原则 高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。 4.接口隔离原则 客户端不应该被强迫地依赖那些根本用不上的方法。 5.迪米特原则 一个对象应该对其他对象保持最少的了解【在一个类中应该少出现其他类】。 6.开闭原则 一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[同步和异步 阻塞和非阻塞]]></title>
     <url>%2F2018%2F07%2F30%2F%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%20%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%2F</url>
     <content type="text"><![CDATA[同步：调用者主动等待调用的结果；异步：调用者可能不会立即得到结果，需要被调用者通过状态、通知来通知调用者，或者通过回调函数处理这个调用。 当你去面试后，主动询问或等待面试结果，这个就是同步；你完成面试之后，HR说结果不能马上出来，你先回去等通知哈，过不久后HR打电话或发短信跟你说面试结果，这个就是异步。 也就是说，同步和异步的区别就是主动获取和被动获取的区别，阻塞和非阻塞的区别就是在获取到反馈之前，你能不能干其它的事情。 参考链接（侵删）* https://www.cnblogs.com/Anker/p/5965654.html]]></content>
@@ -34,8 +45,8 @@
         <category>模电</category>
       </categories>
       <tags>
-        <tag>模电</tag>
         <tag>晶体三极管</tag>
+        <tag>模电</tag>
       </tags>
   </entry>
   <entry>
@@ -60,9 +71,9 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>MVVC</tag>
         <tag>Mysql</tag>
         <tag>事务</tag>
+        <tag>MVVC</tag>
         <tag>幻读</tag>
       </tags>
   </entry>
@@ -74,9 +85,9 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>MVVC</tag>
         <tag>Mysql</tag>
         <tag>事务</tag>
+        <tag>MVVC</tag>
         <tag>幻读</tag>
       </tags>
   </entry>
@@ -101,11 +112,11 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>MVVC</tag>
         <tag>Mysql</tag>
         <tag>事务</tag>
-        <tag>幻读</tag>
         <tag>隔离级别</tag>
+        <tag>MVVC</tag>
+        <tag>幻读</tag>
         <tag>转载</tag>
       </tags>
   </entry>
